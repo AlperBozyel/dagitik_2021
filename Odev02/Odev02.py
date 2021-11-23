@@ -14,6 +14,11 @@ try:
         airlines_splitted.append(airlines_list[n].split(","))    
         airlines_splitted[n][-1] = airlines_splitted[n][-1].rstrip('\n')
         
+except IOError:
+    print("Error!")      
+finally:
+    airlines.close()  
+    
     airlines_D = input("Enter airline miles are on: ") 
     airlines_A = input("Enter goal airline: ")
     
@@ -40,10 +45,7 @@ try:
         for n in range (path_size):
             print(str(n+1)+")"+str(airlines_splitted[path_no][n]))
                           
-except IOError:
-    print("Error!")
-finally:
-    airlines.close()
+
 
 
 
